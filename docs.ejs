@@ -1,0 +1,17 @@
+<% include ../template/header %>
+<div class="container-fluid" id="wrapper">
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+        <% include navigation %> 
+    </div>
+    
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+        <% include database/database %>
+        <% include query/query %> 
+        <% include project/project %>
+        <% include api/api %>
+        <% include library/library %>
+        <% include chartForm/chartform %>
+        <% include analytics/analytics %>
+    </div>
+</div>
+<% include ../template/footer %>
