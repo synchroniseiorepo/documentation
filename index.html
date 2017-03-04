@@ -1,0 +1,518 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Documentation - Synchronise.IO</title>
+
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+    <script src="javascripts/all.js"></script>
+</head>
+
+<body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+        <span>
+            NAV
+            <img src="images/navbar.png" />
+        </span>
+    </a>
+    <div class="tocify-wrapper">
+        <div class="logo"><a href="https://www.synchronise.io"><img src="images/logo.png" /></a></div>
+        <div class="lang-selector">
+            <a href="#" data-language-name="shell">cURL</a>
+            <a href="#" data-language-name="javascript">Javascript</a>
+        </div>
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+        <div id="toc">
+        </div>
+        <ul class="toc-footer">
+            <li><a href="https://www.synchronise.io/?display=login" class="signupButton">Sign Up it's free!</a></li>
+            <li><a href='https://www.synchronise.io/marketplace'>Discover our MarketPlace</a></li>
+        </ul>
+        <center>
+            <a class="github-button"
+            href="https://github.com/synchroniseiorepo"
+            data-count-href="/synchroniseiorepo/followers"
+            data-count-api="/users/synchroniseiorepo#followers"
+            data-count-aria-label="# followers on GitHub"
+            aria-label="Follow @synchroniseiorepo on GitHub">Follow @synchroniseiorepo</a>
+            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+        </center>
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content">
+            
+            <h1 id="introduction">Introduction</h1>
+
+<p>Synchronise is a tool that helps you integrate Web Services in your app or IoT project in a breeze. Instead of having to integrate multiple SDKs and libraries, you install only Synchronise&rsquo;s SDKs in your projet and you will be able to execute any Web Service you want.  </p>
+
+<p>Our platform is made of two main elements:</p>
+
+<ul>
+<li><p><b><a href="#components">Components</a></b>: They are small block of code written in a Javascript, that execute a simple action. That action could be anything such as sending an email, processing a credit card, or even getting a list of the best cats on <a href="https://www.catapp.org" rel="nofollow">www.catapp.org</a>, you name it&hellip;</p></li>
+<li><p><b><a href="#workflows">Workflow</a></b>: They allow you to execute multiple components as a group. For example, you could create a workflow to sign up a new user on your website. That workflow could send an email to that new user with Mailgun, create a customer account on Stripe, add that user on your Mixpanel app&hellip; We have made a very nice interface to let you create workflows in just a few seconds.
+This is what creating a workflow feels like:<br/>
+<center><iframe width="420" height="315" src="https://www.youtube-nocookie.com/embed/wA2Up_cIx8k?rel=0" frameborder="0" allowfullscreen></iframe></center></p></li>
+</ul>
+
+<p>Integrating a Component or a Workflow in your app is easy thanks to our client libraries. They are very similar in every languages making your life as a developer a lot easier. Basically, you work on a Component or Workflow once, and you integrate it everywhere in just seconds.</p>
+
+            <h1 id="components"><div id="components"><i class="fa fa-puzzle-piece"></i> Components</div></h1>
+
+<p>Components are simple functions written in Node.JS. They can do anything you want them to, from sending an email to cropping an image or even calling a Uber cab. There are dozens of Components already available on our marketplace <a href="https://www.synchronise.io/marketplace">synchronise.io/marketplace</a> and they are all free to use.</p>
+
+<h2 id="run-a-component">Run a component</h2>
+
+<p>Make sure you have integrated our <a href="#sdks">SDK</a> and initialized it before running a Component.</p>
+<pre class="highlight shell"><code>curl -X POST <span class="se">\</span>
+     -H <span class="s2">"x-synchronise-public-key: {{PUBLIC_KEY}}"</span> <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -d <span class="s1">'{"id":"ID_OF_COMPONENT" /* , WHATEVER INPUTS YOU WANT TO SEND*/}'</span> <span class="se">\</span>
+https://api.synchronise.io/component/run
+</code></pre>
+<pre class="highlight javascript"><code><span class="c1">// We prepopulate the PUBLIC KEY if you are connected to your account</span>
+<span class="nx">Synchronise</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s2">"{{PUBLIC_KEY}}"</span><span class="p">);</span>
+
+<span class="nx">Synchronise</span><span class="p">.</span><span class="nx">Component</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s2">"ID_OF_COMPONENT"</span><span class="p">,</span>
+    <span class="p">{</span><span class="cm">/* , WHATEVER INPUTS YOU WANT TO SEND*/</span><span class="p">},</span> <span class="p">{</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">always</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// Always called, whether success or error       </span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>Using a Component is very easy thanks to our client libraries. Bear in mind that Components are simply cloud functions. They can be called as many times as you wish and in any order.</p>
+
+<p>Components take Inputs and give Outputs.</p>
+
+<ul>
+<li><p><b>Inputs</b> are very similiar to the idea of parameters for a function, but they are much more than that.<br/>
+They all of have a type (Number, String, Boolean&hellip;) and can also have a subtype (Email, Float, IP Address).<br/>
+When you execute a Component you need to provide all mandatory Inputs with the correct type of data.<br/>
+If one of the mandatory Inputs is not provided or if its type is not correct, the execution of the Component will fail.<br/>
+The type of an Input must at least match its Top level type, aka Number, String, Date&hellip; If an Input needs to be of a specific subtype, it will automatically be matched and converted if necessary. <br/>
+For example an Input of type &ldquo;Date&rdquo; will accept anything that is close enough to a Date.<br/>
+&ldquo;2016-03-01&rdquo; or &ldquo;18:59:01 2020-04-12&rdquo; will both be accepted and converted to a Javascript Date.</p></li>
+<li><p><b>Outputs</b> A Component can sometime provide an answer after execution.<br/>
+The same rules apply to Ouputs in term of types of data, than for the types for Inputs.<br/>
+If Component does not provide all required Outputs or if an Output has an incorrect type, its execution will fail.<br/>
+Be aware, a Component can return more Outputs than declared in its environment. These are usually debugging Outputs that are not relevant to a normal execution flow. Simply visit the page of a Component to discover the Ouputs it returns.</p></li>
+</ul>
+
+<h2 id="create-a-component">Create a Component</h2>
+
+<p>Our Market Place is a great opportunity for saving time and avoiding recreating Components that already exists. Despite its richness, you could sometime require a specific action that is not available.<br/>
+Common reasons for creating your own Components are:</p>
+
+<ul>
+<li>Making your Web Service available to other developers and promoting your brand</li>
+<li>Creating a specific action that you cannot find on the market place</li>
+<li>Creating a Component that only you and your team can see</li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>We have made it very simple for anyone to create a Component. There are no tools to setup, no software to install and not even a command line interface to harness. Everything happens on our website and it only takes a few minutes to go from idea to a Component available on our Market Place.</p>
+
+<p>We have created a web interface that lets you write code for your Components anywhere you have an internet connection. Here is how it looks like:<br/><br/>
+<img src="images/component_interface.png" style="border: 1px solid darkgray;border-radius: 3px;"/></p>
+
+<h3 id="interface">Interface</h3>
+
+<p>The interface is made of two main elements. Everything on the left side of the screen is about the execution of the Component. That includes the Inputs, Outputs and the actual code. Everything on the right side of the screen is about setting up testing and exporting the Component.</p>
+
+<h4 id="left-side-the-code">Left side: The code</h4>
+
+<p>The left side of the screen displays everything you need to shape the execution of your Component</p>
+
+<ul>
+<li><p>The first block contains the Inputs you declared for your Component<br/>
+<img src="images/component_inputs.png" style="border: 1px solid darkgray;border-radius: 3px;"/><br/>
+To add a new Input, simply click the &ldquo;Add Input&rdquo; button, type the name of the Input and press the return key<br/>
+You can change the type of the Input by clicking on the types that are already set. You will see a list of types like Number, Boolean, Date&hellip;<br/>
+If an Input is not mandatory for the Component to execute properly, you can check the &ldquo;optional&rdquo; checkbox.</p></li>
+<li><p>The second block contains the actual code of your Component.
+<img src="images/component_code.png" style="border: 1px solid darkgray;border-radius: 3px;"/><br/>
+Just like any other proper code editor it comes with pre-built features to help you type code faster and more efficiently.<br/>
+The editor will:<br/>
+-&gt; autocorrect the syntax of your code,<br/>
+-&gt; autocomplete as you type with useful elements such as, the third party modules available, the Inputs and the Outputs you can use, any other variables or functions you created within the code<br/>
+-&gt; autoindent and put brackets for you<br/>
+-&gt; let you select with multicursors<br/>
+In other words, a desktop class IDE! Go and try it to discover what&rsquo;s under the hood.</p></li>
+<li><p>The third block contains the Outputs of your Component<br/>
+<img src="images/component_outputs.png" style="border: 1px solid darkgray;border-radius: 3px;"/><br/>
+To add a new Output, click on the &ldquo;Add Output&rdquo; button, type the name of the Output and press the return key<br/>
+You can change the type of the Output by clicking on the types that are already set. You will see a list of types like Number, Boolean, Date&hellip;</p></li>
+</ul>
+
+<h4 id="right-side-the-toolbar">Right side: The toolbar</h4>
+
+<ul>
+<li><p>The first element of the toolbar contains all the action buttons.
+<img src="images/component_toolbar_buttons.png" style="border: 1px solid darkgray;border-radius: 3px;"/><br/>
+The &ldquo;Run&rdquo; button, executes the Component with the current state of the &ldquo;Inputs&rdquo;, &ldquo;Code&rdquo; and &ldquo;Outputs&rdquo; you see on your screen. It is very useful in order to debug your code as you create it.<br/>
+The &ldquo;Documentation&rdquo; simply opens this documentation to the &ldquo;Create a component&rdquo; section<br/>
+The 3 tabs &ldquo;Code&rdquo;, &ldquo;Settings&rdquo;, &ldquo;Export&rdquo;, let you manage and export your work on the Component</p></li>
+<li><p>The second block lets you send Inputs values to your Component when you execute it.
+<img src="images/component_toolbar_inputs.png" style="border: 1px solid darkgray;border-radius: 3px;"/><br/>
+You can type the values you want and the system will automatically convert them to the correct types when you run your Component. This is simply an abstraction to sending your Inputs by code nothing more, but it makes the debuguing process a lot easier.
+<aside class="notice">If your Component does not have any Inputs, the Input Values block will not be displayed.</aside></p></li>
+<li><p>The third block gives you some information about the execution of your Component. The &ldquo;Results&rdquo; displays the Outputs of your Component. It is an abstration of the success and error callbacks on our SDK.<br/>The &ldquo;Console&rdquo; displays any logs coming from your component. To display some log use the &ldquo;console.log();&rdquo; function in your code. You can send literally any data you want in the log.
+<aside class="warning">
+Do no leave any console.log once your Component is ready for production. There is no easy way for us to determine if your Component is in production or development mode. Our API returns the logs no matter where you execute your Component. This could produce unnecessary traffic in your app and slow down your user&rsquo;s experience.
+</aside></p></li>
+</ul>
+
+<h3 id="inputs">Inputs</h3>
+<pre class="highlight javascript"><code><span class="c1">// To display the Input &lt;b&gt;user_id&lt;/b&gt; in the logs we would do</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Input</span><span class="p">.</span><span class="nx">user_id</span><span class="p">);</span>
+</code></pre>
+
+<p>Inputs contain the data your Component can receive when it is executed. A Component can receive an unlimited amount of Inputs. During the execution of your Component, Inputs are available through the special keyword <b>Input</b>.<br/>
+You can declare Inputs to be delivered to a Component when it is executed. All declared Inputs must have a type (i.e Text, JSON, Number, Date&hellip;). <br/>
+At execution time, the type of an Input is matched against its expected type. If the type of the data does not match the expected type, the request will return an error.<br/>
+If you need to send an Input without type matching, simply do not declare it. An undeclared Input will still be available in the Component environment.<br/></p>
+
+<p>Type validation:<br/>
+<ul>
+    <li>
+        <b>Text</b>
+        <ul>
+            <li><b>Text</b>: Any text Input is accepted</li>
+            <li><b>Email</b>: Check if the Input is an email</li>
+            <li><b>Url</b>: Check if the Input is an URL</li>
+            <li><b>Credit Card</b>: Check if the Input is a credit card</li>
+            <li><b>Alpha</b>: Check if the Input contains only letters (a-zA-Z)</li>
+            <li><b>Alphanumeric</b>: Check if the Input contains only letters and numbers</li><li>Ascii: Check if the Input contains ASCII chars only</li>
+            <li><b>Base64</b>: Check if the Input is base64 encoded</li>
+            <li><b>UUID</b>: Check if the Input is a UUID (version 3, 4 or 5)</li>
+            <li><b>IP</b>: Check if the Input is an IP (version 4 or 6)</li>
+            <li><b>ISBN</b>: Check if the Input is an ISBN (version 10 or 13)</li>
+            <li><b>ISIN</b>: Check if the Input is a <a href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number">stock/security identifier</a></li>
+            <li><b>ISO8601</b>: Check if the string is a valid <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date</li>
+        </ul>
+    </li>
+    <li><b>JSON</b>: Check if the Input is valid JSON</li>
+    <li>
+        <b>Number</b>
+        <ul>
+            <li><b>Float</b>: Check if the Input is a float. Will try casting if a string is provided</li>
+            <li><b>Decimal</b>: Check if the Input represents a decimal number, such as 0.1, .3, 1.1, 1.00003, 4.0, etc. Will try casting is a string is provided</li>
+            <li><b>Integer</b>: Check if the Input is an integer. Will try casting if a string is provided</li>
+            <li><b>Hexadecimal</b>: Check if the Input is a hexadecimal number. Will try casting if a string is provided</li>
+        </ul>
+    </li>
+    <li><b>Boolean</b>: Check if the Input is a boolean</li>
+    <li><b>Date</b>: Check if the Input is a date</li>
+</ul></p>
+
+<h3 id="outputs">Outputs</h3>
+<pre class="highlight javascript"><code><span class="c1">// To return an Output called &lt;b&gt;results&lt;/b&gt; we you would do this:</span>
+<span class="c1">// "Results" does not need to be an array, it can be of any type</span>
+<span class="nx">Output</span><span class="p">.</span><span class="nx">results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">artist</span><span class="p">:</span> <span class="s2">"Bob Dylan"</span><span class="p">,</span>
+    <span class="na">albums</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="na">id</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"Blonde On Blonde"</span>
+    <span class="p">}]</span>
+<span class="p">};</span>
+<span class="nx">success</span><span class="p">();</span>
+
+<span class="c1">// You can also provide the Output to success() using a JSON object:</span>
+<span class="nx">success</span><span class="p">({</span>
+    <span class="na">results</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">artist</span><span class="p">:</span> <span class="s2">"Bob Dylan"</span><span class="p">,</span>
+        <span class="na">albums</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="na">id</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="na">name</span><span class="p">:</span> <span class="s2">"Blonde On Blonde"</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// And finally you can use a combination of the two.</span>
+<span class="c1">// The following code will return both the Outputs &lt;b&gt;another&lt;/b&gt; and &lt;b&gt;album&lt;/b&gt;</span>
+<span class="nx">Output</span><span class="p">.</span><span class="nx">another</span> <span class="o">=</span> <span class="s2">"Value"</span><span class="p">;</span>
+<span class="nx">success</span><span class="p">({</span>
+    <span class="na">results</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">artist</span><span class="p">:</span> <span class="s2">"Bob Dylan"</span><span class="p">,</span>
+        <span class="na">albums</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="na">id</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="na">name</span><span class="p">:</span> <span class="s2">"Blonde On Blonde"</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>Outputs are data that your Component can send/answer when it is executed. It is very similar to the idea of a return statement of a function.<br/>
+A Component can send an unlimited amount of Outputs.<br/>
+You can set the value of an Output anytime and anywhere in your code using the special keyword <b>Output</b>.<br/>
+All declared Outputs are mandatory and failing to provide one of the Output from the Component will return an error.<br/>
+All declared Outputs must have a type defined (i.e Text, JSON, Number, Date&hellip;).<br/>
+At execution time, the data type of an Output is matched against its expected type.<br/>
+If the Output data type does not match the expected type, the request will return an error.<br/>
+You can send any Output you want without type matching, simply do not declare it.<br/>
+An undeclard Output will still be available on the client when your Component executes. However, it will not be available to be used in a Workflow<br/></p>
+
+<p>Type validation:<br/>
+<ul>
+    <li>
+        <b>Text</b>
+        <ul>
+            <li><b>Text</b>: Any text Output is accepted</li>
+            <li><b>Email</b>: Check if the Output is an email</li>
+            <li><b>Url</b>: Check if the Output is an URL</li>
+            <li><b>Credit Card</b>: Check if the Output is a credit card</li>
+            <li><b>Alpha</b>: Check if the Output contains only letters (a-zA-Z)</li>
+            <li><b>Alphanumeric</b>: Check if the Output contains only letters and numbers</li>
+            <li><b>Ascii</b>: Check if the Output contains ASCII chars only</li>
+            <li><b>Base64</b>: Check if the Output is base64 encoded</li>
+            <li><b>UUID</b>: Check if the Output is a UUID (version 3, 4 or 5)</li>
+            <li><b>IP</b>: Check if the Output is an IP (version 4 or 6)</li>
+            <li><b>ISBN</b>: Check if the Output is an ISBN (version 10 or 13)</li>
+            <li><b>ISIN</b>: Check if the Output is a <a href="https://en.wikipedia.org/wiki/International_Securities_Identification_Number">stock/security identifier</a></li>
+            <li><b>ISO8601</b>: Check if the string is a valid <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date</li>
+        </ul>
+    </li>
+    <li><b>JSON</b>: Check if the Output is valid JSON</li>
+    <li>
+        <b>Number</b>
+        <ul>
+            <li><b>Float</b>: Check if the Output is a float. Will try casting if a string is provided</li>
+            <li><b>Decimal</b>: Check if the Output represents a decimal number, such as 0.1, .3, 1.1, 1.00003, 4.0, etc. Will try casting is a string is provided</li>
+            <li><b>Integer</b>: Check if the Output is an integer. Will try casting if a string is provided</li>
+            <li><b>Hexadecimal</b>: Check if the Output is a hexadecimal number. Will try casting if a string is provided</li>
+        </ul>
+    </li>
+    <li><b>Boolean</b>: Check if the Output is a boolean</li>
+    <li><b>Date</b>: Check if the Output is a date</li>
+</ul></p>
+
+<h3 id="third-party-modules">Third Party Modules</h3>
+<pre class="highlight javascript"><code><span class="c1">// Example of using the package 'request'</span>
+<span class="nx">request</span><span class="p">(</span><span class="s1">'http://www.urltoserver.com'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>Although creating a Component is quick, it can be even faster with the use of a third party package.<br/>
+We have installed some public Third Party npm packages on our infrastructure.<br/>
+They are directly available as global variables in the context of your component.<br/><br/>
+Cannot find what you are looking for? We are very open to new ideas. If you need a package of any sort, contact us and we will add it in less time than it takes to peel a potato.</p>
+
+<p align="center"><button class="btn" href="#" onclick="Intercom('showNewMessage', 'I would like to have the NPM package: https://www.npmjs.com/package/[PACKAGE_NAME]'); return false">Request package</button></p>
+
+<h4 id="available-modules">Available modules</h4>
+
+<p><b>Crypto</b><br/>
+JavaScript implementations of standard and secure cryptographic algorithms.<br/>
+<b>Keyword:</b> crypto<br/>
+<a href="https://github.com/Gozala/crypto">Documentation</a><br/></p>
+
+<p><b>Lazy</b><br/>
+JavaScript implementations of standard and secure cryptographic algorithms.<br/>
+<b>Keyword:</b> crypto<br/>
+<a href="https://github.com/Gozala/crypto">Documentation</a><br/></p>
+
+<p><b>Lazy</b><br/>
+Lazy lists for node<br/>
+<b>Keyword:</b> Lazy<br/>
+<a href="https://www.npmjs.com/package/lazy">Documentation</a><br/></p>
+
+<p><b>Buffer</b><br/>
+Native Buffer class of Node.JS<br/>
+<b>Keyword:</b> Buffer<br/>
+<a href="https://nodejs.org/api/buffer.html">Documentation</a><br/></p>
+
+<p><b>Mailgun</b><br/>
+Simple Node.js helper module for Mailgun API<br/>
+<b>Keyword:</b> mailgun<br/>
+<a href="https://www.npmjs.com/package/mailgun-js">Documentation</a><br/></p>
+
+<p><b>Request</b><br/>
+Simplified HTTP request client<br/>
+<b>Keyword:</b> request<br/>
+<a href="https://www.npmjs.com/package/request">Documentation</a><br/></p>
+
+<p><b>Underscore</b><br/>
+JavaScript&rsquo;s functional programming helper library<br/>
+<b>Keyword:</b> _<br/>
+<a href="https://www.npmjs.com/package/underscore">Documentation</a><br/></p>
+
+<p><b>Clearbit</b><br/>
+Client for Clearbit.co business intelligence APIs<br/>
+<b>Keyword:</b> clearbit<br/>
+<a href="https://www.npmjs.com/package/clearbit">Documentation</a><br/></p>
+
+<p><b>Stripe</b><br/>
+Stripe API wrapper<br/>
+<b>Keyword:</b> stripe<br/>
+<a href="https://www.npmjs.com/package/stripe">Documentation</a><br/></p>
+
+<p><b>Twilio</b><br/>
+A Twilio helper library<br/>
+<b>Keyword:</b> twilio<br/>
+<a href="https://www.npmjs.com/package/twilio">Documentation</a><br/></p>
+
+<p><b>Xero</b><br/>
+A simple node library for Xero Private Applications<br/>
+<b>Keyword:</b> xero<br/>
+<a href="https://www.npmjs.com/package/twilio">Documentation</a><br/></p>
+
+<h4 id="request-a-module">Request a module</h4>
+
+<p>We know it is difficult to predict all your wishes. Don&rsquo;t be shy and let us know what package you need. We will add it to our catalog in no time.
+<p align="center"><button class="btn" href="#" onclick="Intercom('showNewMessage', 'I would like to have the NPM package: https://www.npmjs.com/package/[PACKAGE_NAME]'); return false">Request package</button></p></p>
+
+<h3 id="publishing-on-the-market-place">Publishing on the Market Place</h3>
+
+<h4 id="benefits">Benefits</h4>
+
+<h4 id="review-process">Review Process</h4>
+
+<h4 id="project-page">Project Page</h4>
+
+<h4 id="shared-project-vs-private-project">Shared Project vs Private Project</h4>
+
+            <h1 id="sdks"><div id="sdks">SDKs</div></h1>
+
+<h2 id="node-js">Node.JS</h2>
+
+<h3 id="download">Download</h3>
+
+<p>npm install synchronise &ndash;save</p>
+
+<h3 id="require">Require</h3>
+
+<p>var Synchronise = require(&lsquo;synchronise&rsquo;);</p>
+
+<h3 id="initialize">Initialize</h3>
+
+<p>Synchronise.init(&ldquo;{{PUBLIC_KEY}}&rdquo;);</p>
+
+<h2 id="javascript">Javascript</h2>
+
+<h3 id="integrate">Integrate</h3>
+
+<p>&lt;script src=&ldquo;https://js.synchronise.io/1.0.min.js&rdquo;&gt;&lt;/script&gt;</p>
+
+<h3 id="initialize">Initialize</h3>
+
+<p>&lt;script type=&ldquo;text/javascript&rdquo;&gt;<br/>
+Synchronise.init(&ldquo;{{PUBLIC_KEY}}&rdquo;);<br/>
+&lt;/script&gt;</p>
+
+        </div>
+        <div class="dark-box">
+            <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript">Javascript</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">function dependenciesLoader(n,e){var d=window.setInterval(function(){for(var i=[],o=0;o<n.length;o++)i.push(typeof window[n[o]]);-1==i.indexOf("undefined")&&(window.clearInterval(d),e())},0)}</script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script type="text/javascript" src="javascripts/synchronise.js"></script>
+    <script type="text/javascript" src="javascripts/persist.min.js"></script>
+    <script type="text/javascript" src="javascripts/docs.js"></script>
+    <script>
+    window.intercomSettings = {app_id: "npb88fb3"};
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/npb88fb3';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+dependenciesLoader(["Synchronise"],function(){$("code,p").each(function(){Synchronise.User.current()&&Synchronise.User.current().public_key&&$(this).html($(this).html().replace("{{PUBLIC_KEY}}",Synchronise.User.current().public_key))})});
